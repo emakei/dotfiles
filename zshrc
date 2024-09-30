@@ -10,6 +10,15 @@ then
     source $HOME/.profile
 fi
 
+# Functions
+if [[ -d $HOME/.zsh/functions ]]
+then
+    for file in $HOME/.zsh/functions/*.sh
+    do
+        source $file
+    done
+fi
+
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
