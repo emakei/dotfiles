@@ -48,11 +48,7 @@ bindkey -v
 
 export KEYTIMEOUT=1
 
-export EDITOR='vim --clean'
-
-edit() {
-    vim --clean $@
-}
+export EDITOR=vim
 
 ## Init
 setopt PROMPT_SUBST
