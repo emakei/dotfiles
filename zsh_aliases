@@ -1,0 +1,6 @@
+alias ls='ls -G'
+alias la='ls -Gla'
+alias ll='ls -Galh'
+
+alias cd..='cd ..'
+
