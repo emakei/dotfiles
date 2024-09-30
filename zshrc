@@ -10,7 +10,17 @@ then
     source $HOME/.profile
 fi
 
-fpath=($HOME/.zsh/completion)
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+
+if [ -f $HOME/.zsh ]; then
+	fpath=(
+		~/.zsh/completion
+		"${fpath[@]}"
+	)
+fi
+
 autoload -Uz compinit
 autoload -Uz vcs_info
 compinit -u
@@ -26,7 +36,9 @@ zstyle ':vcs_info:git:*' formats '%b'
 # end: git
 
 bindkey -v
+
 export KEYTIMEOUT=1
+
 export EDITOR='vim --clean'
 
 edit() {
