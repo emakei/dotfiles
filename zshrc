@@ -13,7 +13,7 @@ fi
 # Functions
 if [[ -d $HOME/.zsh/functions ]]
 then
-    for file in $HOME/.zsh/functions/*.sh
+    for file in $HOME/.zsh/functions/*.sh(.N)
     do
         source $file
     done
