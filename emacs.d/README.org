@@ -1,0 +1,11 @@
+* My Emacs Init
+
+** FAQ
+
+*** Need keyring update
+
+1. Download https://elpa.gnu.org/packages/gnu-elpa-keyring-update.html
+
+2. M-x ~package-install-file~
+
+3. M-x ~gnu-elpa-keyring-update~
