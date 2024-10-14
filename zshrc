@@ -10,25 +10,25 @@ then
     source $HOME/.profile
 fi
 
-# Functions
-if [[ -d $HOME/.zsh/functions ]]
+# custumizations
+if [[ -d $HOME/.zsh/custom ]]
 then
-    for file in $HOME/.zsh/functions/*.sh(.N)
+    for file in $HOME/.zsh/custom/*.zsh(.N)
     do
         source $file
     done
 fi
 
-HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
-
-if [ -f $HOME/.zsh ]; then
+if [ -d $HOME/.zsh ]; then
 	fpath=(
-		~/.zsh/completion
+		$HOME/.zsh/completion
 		"${fpath[@]}"
 	)
 fi
+
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
 
 autoload -Uz compinit
 autoload -Uz vcs_info
@@ -45,9 +45,7 @@ zstyle ':vcs_info:git:*' formats '%b'
 # end: git
 
 bindkey -v
-
 export KEYTIMEOUT=1
-
 export EDITOR=vim
 
 ## Init
