@@ -10,6 +10,10 @@ then
     source $HOME/.profile
 fi
 
+bindkey -v
+export KEYTIMEOUT=1
+export EDITOR=vim
+
 # custumizations
 if [[ -d $HOME/.zsh/custom ]]
 then
@@ -43,10 +47,6 @@ RPROMPT=\$vcs_info_msg_0_
 # PROMPT=\$vcs_info_msg_0_'%# '
 zstyle ':vcs_info:git:*' formats '%b'
 # end: git
-
-bindkey -v
-export KEYTIMEOUT=1
-export EDITOR=vim
 
 ## Init
 setopt PROMPT_SUBST
