@@ -128,6 +128,10 @@ This does not check the validity of key string."
   (use-package julia-mode
     :ensure t)
 
+  (use-package csv-mode
+    :ensure t
+    :defer t)
+
   (use-package flycheck
     :ensure t
     :defer t
