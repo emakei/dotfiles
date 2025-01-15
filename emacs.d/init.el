@@ -67,6 +67,33 @@ This does not check the validity of key string."
 ;; Which means on every .el and .elc file loaded during start up, it has to runs those regexps against the filename.
 (let* ((file-name-handler-alist nil))
 
+  (use-package evil
+    :ensure t
+    :custom
+    evil-disable-insert-state-bindings t
+    :init
+    (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+    (setq evil-want-keybinding nil)
+    :config
+    (evil-mode 1))
+
+  (use-package evil-collection
+    :after evil
+    :ensure t
+    :config
+    (evil-collection-init))
+  
+  (use-package helm
+    :ensure t
+    :config
+    (keymap-global-set "M-x" 'helm-M-x)
+    (keymap-global-set "C-x r b" 'helm-filtered-bookmarks)
+    (keymap-global-set "C-x C-f" 'helm-find-files)
+    (keymap-global-set "C-x b" 'helm-mini))
+
+  (use-package helm-xref
+    :ensure t)
+  
   (use-package exec-path-from-shell
     :ensure t
     :defer t
@@ -107,6 +134,12 @@ This does not check the validity of key string."
     :config
     (add-to-list 'exec-path "~/go/bin"))
 
+  (use-package rust-mode
+    :ensure t
+    :init
+    (setq rust-mode-treesitter-derive t)
+    (add-hook 'rust-mode-hook #'lsp))
+
   (use-package hover
     :ensure t
     :defer t
@@ -144,7 +177,9 @@ This does not check the validity of key string."
     :hook ((go-mode . lsp)
 	   (js-mode . lsp)
 	   (dart-mode . lsp)
-           (lsp-mode . lsp-enable-which-key-integration))
+           (lsp-mode . lsp-enable-which-key-integration)
+	   (c-mode . lsp)
+	   (c++-mode . lsp))
     :config
     (setq lsp-go-analyses '((shadow . t)
                             (simplifycompositelit . :json-false)))
@@ -168,6 +203,8 @@ This does not check the validity of key string."
   (use-package dap-js)
 
   (use-package dap-node)
+
+  (use-package dap-cpptools)
 
   (use-package perspective
     :ensure t
@@ -288,7 +325,7 @@ This does not check the validity of key string."
   (scroll-bar-mode nil)
 
   (cua-mode t)
-
+  
   (keymap-global-set "M-o" 'other-window)
   (keymap-global-set "<f7>" 'toggle-truncate-lines))
 
