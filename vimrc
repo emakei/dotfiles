@@ -122,6 +122,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'mattn/emmet-vim'
 Plug 'preservim/nerdtree'
 Plug 'Raku/vim-raku'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 " }}}

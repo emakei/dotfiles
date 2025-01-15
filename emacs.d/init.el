@@ -158,6 +158,13 @@ This does not check the validity of key string."
           hover-clear-buffer-on-hot-restart t)
     (hover-minor-mode 1))
 
+  (use-package julia-mode
+    :ensure t)
+
+  (use-package csv-mode
+    :ensure t
+    :defer t)
+
   (use-package flycheck
     :ensure t
     :defer t
@@ -192,7 +199,9 @@ This does not check the validity of key string."
        ("gopls.staticcheck" t t)))
     :commands lsp)
 
-  (use-package lsp-ui :commands lsp-ui-mode)
+  (use-package lsp-ui
+    :ensure t
+    :commands lsp-ui-mode)
 
   (use-package dap-mode
     :ensure t
