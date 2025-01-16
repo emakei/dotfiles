@@ -123,6 +123,10 @@ This does not check the validity of key string."
   (use-package raku-mode
     :ensure t
     :defer t)
+  
+  (use-package feature-mode
+    :ensure t
+    :defer t)
 
   (use-package dart-mode
     :ensure t
