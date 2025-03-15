@@ -67,22 +67,6 @@ This does not check the validity of key string."
 ;; Which means on every .el and .elc file loaded during start up, it has to runs those regexps against the filename.
 (let* ((file-name-handler-alist nil))
 
-  (use-package evil
-    :ensure t
-    :custom
-    evil-disable-insert-state-bindings t
-    :init
-    (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
-    (setq evil-want-keybinding nil)
-    :config
-    (evil-mode 1))
-
-  (use-package evil-collection
-    :after evil
-    :ensure t
-    :config
-    (evil-collection-init))
-  
   (use-package helm
     :ensure t
     :config
