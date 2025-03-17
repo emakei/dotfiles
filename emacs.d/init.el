@@ -187,9 +187,10 @@ This does not check the validity of key string."
        ("gopls.staticcheck" t t)))
     :commands lsp)
 
-  (use-package lsp-ui
-    :ensure t
-    :commands lsp-ui-mode)
+  (if (not (version< emacs-version "28.1"))
+      (use-package lsp-ui
+	:ensure t
+	:commands lsp-ui-mode))
 
   (use-package dap-mode
     :ensure t
