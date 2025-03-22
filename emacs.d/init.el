@@ -141,7 +141,7 @@ This does not check the validity of key string."
   (use-package rust-mode
     :ensure t
     :init
-    (setq rust-mode-treesitter-derive t)
+    ;;(setq rust-mode-treesitter-derive t)
     (add-hook 'rust-mode-hook #'lsp))
 
   (use-package hover
