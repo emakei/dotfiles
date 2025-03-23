@@ -124,6 +124,7 @@ Plug 'preservim/nerdtree'
 Plug 'Raku/vim-raku'
 Plug 'rust-lang/rust.vim'
 Plug 'JuliaEditorSupport/julia-vim'
+Plug 'chrisbra/csv.vim'
 
 call plug#end()
 " }}}
