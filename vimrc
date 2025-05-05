@@ -16,6 +16,9 @@ syntax on
 " Add numbers to each line on the left-hand side.
 set number
 
+" Show relative line numvers
+set relativenumber
+
 " Highlight cursor line underneath the cursor horizontally.
 set cursorline
 
@@ -88,16 +91,10 @@ map <leader>s :split
 map <leader>J :bn<cr>
 map <leader>K :bp<cr>
 
-nnoremap <leader>j <C-W><C-J>
-nnoremap <leader>k <C-W><C-K>
-nnoremap <leader>h <C-W><C-H>
-nnoremap <leader>l <C-W><C-L>
-
 " NERDTree
 
 nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-b> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 " Start NERDTree when Vim starts with a directory argument.
@@ -122,6 +119,10 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'mattn/emmet-vim'
 Plug 'preservim/nerdtree'
 Plug 'Raku/vim-raku'
+Plug 'ericbn/vim-solarized'
+Plug 'sukima/xmledit'
+Plug 'vim-scripts/django.vim'
+Plug 'davidhalter/jedi-vim'
 Plug 'rust-lang/rust.vim'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'chrisbra/csv.vim'
@@ -131,7 +132,20 @@ call plug#end()
 
 " MAPPINGS --------------------------------------------------------------- {{{
 
-" Mappings code goes here.
+" Go
+au FileType go nmap <leader>r  <Plug>(go-run)
+au FileType go nmap <leader>b  <Plug>(go-build)
+au FileType go nmap <leader>g  <Plug>(go-generate)
+au FileType go nmap <leader>ii <Plug>(go-info)
+au FileType go nmap <leader>id <Plug>(go-doc)
+au FileType go nmap <leader>ib <Plug>(go-doc-browser)
+au FileType go nmap <leader>t  <Plug>(go-test)
+au FileType go nmap <leader>ff <Plug>(go-fmt)
+au FileType go nmap <leader>fi <Plug>(go-imports)
+au FileType go nmap <leader>l <Plug>(go-lint)
+au FileType go nmap <leader>v  <Plug>(go-vet)
+au FileType go nmap <leader>sf <Plug>(go-files)
+au FileType go nmap <leader>sd <Plug>(go-deps)
 
 " }}}
 
@@ -143,8 +157,36 @@ augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
-" Raku
 
+" https://neovim.io/doc/user/nvim.html#nvim-from-vim
+"
+if !has('nvim')
+    set ttymouse=xterm2
+endif
+
+if exists(':tnoremap')
+    tnoremap <Esc> <C-\><C-n>
+endif
+
+" Python
+"
+autocmd FileType python set sw=4
+autocmd FileType python set ts=4
+autocmd FileType python set sts=4
+
+let g:jedi#goto_command = "<leader>d"
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_stubs_command = "<leader>s"
+let g:jedi#goto_definitions_command = ""
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<leader>r"
+let g:jedi#rename_command_keep_name = "<leader>R"
+
+" Raku
+"
+autocmd FileType raku NoMatchParen
 let g:raku_unicode_abbrevs = 1
 
 " JavaScript
@@ -161,5 +203,3 @@ augroup END
 " STATUS LINE ------------------------------------------------------------ {{{
 
 " Status bar code goes here.
-
-" }}}
