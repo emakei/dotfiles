@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function gemini() {
 
     gemini_check && { 
