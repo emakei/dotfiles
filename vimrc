@@ -16,8 +16,8 @@ syntax on
 " Add numbers to each line on the left-hand side.
 set number
 
-" Show relative line numvers
-set relativenumber
+" Show number and relative line numvers
+set number relativenumber
 
 " Highlight cursor line underneath the cursor horizontally.
 set cursorline
