@@ -1,0 +1,12 @@
+# Enable vi editing mode
+set editing-mode vi
+
+# Enable the mode indicator in the prompt
+set show-mode-in-prompt on
+
+# Set cursor shape for command mode (Steady block)
+set vi-cmd-mode-string \1\e[2 q\2
+
+# Set cursor shape for insert mode (Steady bar/I-beam)
+set vi-ins-mode-string \1\e[6 q\2
+
