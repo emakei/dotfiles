@@ -28,3 +28,18 @@ map('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 map('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 map('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
+-- Diff keymaps
+map('n', '<leader>do', ':DiffOrig<CR>', { desc = 'Diff buffer with file on disk' })
+
+-- Window Management
+map('n', '<leader>wv', ':vsplit<CR>', { desc = 'Split window vertically' })
+map('n', '<leader>ws', ':split<CR>', { desc = 'Split window horizontally' })
+map('n', '<leader>wc', ':close<CR>', { desc = 'Close current window' })
+map('n', '<leader>wo', ':only<CR>', { desc = 'Close all other windows' })
+map('n', '<leader>wh', '<C-w>h', { desc = 'Move focus left' })
+map('n', '<leader>wj', '<C-w>j', { desc = 'Move focus down' })
+map('n', '<leader>wk', '<C-w>k', { desc = 'Move focus up' })
+map('n', '<leader>wl', '<C-w>l', { desc = 'Move focus right' })
+map('n', '<leader>wr', '<C-w>r', { desc = 'Rotate windows' })
+map('n', '<leader>wx', '<C-w>x', { desc = 'Swap current window' })
+
