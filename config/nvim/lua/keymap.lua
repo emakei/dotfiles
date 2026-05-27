@@ -31,6 +31,10 @@ map('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 -- Diff keymaps
 map('n', '<leader>do', ':DiffOrig<CR>', { desc = 'Diff buffer with file on disk' })
 
+-- Minty Keymaps
+map('n', '<leader>cs', ':Shades<CR>', { silent = true, desc = 'Minty Shades' })
+map('n', '<leader>ch', ':Huefy<CR>', { silent = true, desc = 'Minty Huefy' })
+
 -- Window Management
 map('n', '<leader>wv', ':vsplit<CR>', { desc = 'Split window vertically' })
 map('n', '<leader>ws', ':split<CR>', { desc = 'Split window horizontally' })
