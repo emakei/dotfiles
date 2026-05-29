@@ -20,3 +20,20 @@ vim.api.nvim_create_user_command("DiffOrig", function()
   -- Create a new vertical split with the contents of the file on disk
   vim.cmd("vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis")
 end, { desc = "Compare current buffer with file on disk" })
+
+vim.api.nvim_create_autocmd("CursorHold", {
+	callback = function()
+		vim.diagnostic.open_float(nil, { focus = false })
+	end
+})
+
+-- Guard clause in case autocmds loads before the function is defined
+if _G.sync_theme then
+    vim.api.nvim_create_autocmd({ "FocusGained", "VimResume" }, {
+        group = vim.api.nvim_create_augroup("OSThemeSync", { clear = true }),
+        callback = function()
+            _G.sync_theme()
+        end,
+    })
+end
+

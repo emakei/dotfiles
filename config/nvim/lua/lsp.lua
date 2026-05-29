@@ -3,7 +3,14 @@
 -- Helper to set up LSP
 if vim.lsp.config then
   -- Neovim 0.11+ API
-  
+
+  -- Diagnostic Configuration
+  vim.diagnostic.config({
+	  virtual_text = true,
+	  signs = true,
+	  underline = true,
+  })  
+
   -- Dart
   vim.lsp.config("dartls", {
     cmd = { "dart", "language-server", "--protocol=lsp" },

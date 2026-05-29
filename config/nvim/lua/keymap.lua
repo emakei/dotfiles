@@ -6,8 +6,7 @@ map("n", "<leader>bn", ":bn<CR>")
 map("n", "<leader>bp", ":bp<CR>")
 
 -- NeoTree Keymaps
-map('n', '<leader>n', ':Neotree<CR>', { silent = true })
-map('n', '<C-b>', ':Neotree toggle<CR>', { silent = true })
+map('n', '<leader>n', ':Neotree toggle<CR>', { silent = true, desc = 'Toggle Neo-tree' })
 
 -- LSP Keymaps
 map('n', 'K', vim.lsp.buf.hover, { desc = 'LSP hover' })
@@ -28,6 +27,9 @@ map('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 map('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 map('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
+-- Neoclip Keymaps
+map('n', '<leader>p', ':Telescope neoclip<CR>', { silent = true, desc = 'Clipboard History' })
+
 -- Diff keymaps
 map('n', '<leader>do', ':DiffOrig<CR>', { desc = 'Diff buffer with file on disk' })
 
@@ -47,3 +49,9 @@ map('n', '<leader>wl', '<C-w>l', { desc = 'Move focus right' })
 map('n', '<leader>wr', '<C-w>r', { desc = 'Rotate windows' })
 map('n', '<leader>wx', '<C-w>x', { desc = 'Swap current window' })
 
+
+-- Diagnostic Keymaps
+map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostics' })
+map('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic' })
+map('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic' })
+map('n', '<leader>td', builtin.diagnostics, { desc = 'Telescope diagnostics' })

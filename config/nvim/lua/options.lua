@@ -10,3 +10,8 @@ vim.o.autoread = true
 -- Faster update time for CursorHold (default is 4000ms)
 vim.o.updatetime = 300
 
+-- Sync nvim buffer with OS
+vim.opt.clipboard = "unnamedplus"
+
+vim.o.termguicolors = true
+
