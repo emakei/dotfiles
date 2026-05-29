@@ -11,11 +11,14 @@ This document outlines the structure, conventions, and maintenance guidelines fo
   - `lazy-setup.lua`: `lazy.nvim` plugin manager setup.
   - `lsp.lua`: Language Server Protocol configuration.
   - `plugins/`: Plugin-specific configurations, automatically imported by `lazy.nvim`.
+  - `utils.lua`: Shared utility functions.
 
 ## Development Conventions
 - **Plugins:** New plugins should be added as individual files within `lua/plugins/` to maintain modularity.
 - **Naming:** Keep filenames in `lua/` descriptive and lowercase.
 - **Modularity:** Keep core logic separated: options, mappings, and autocmds should not be cluttered with plugin-specific logic.
+- **Utils:** Common helper functions should be placed in `lua/utils.lua` and required where needed, avoiding global (`_G`) variables.
+- **Keymaps:** Centralize keybinding definitions in `lua/keymap.lua`. Plugin-specific keybindings should be moved here to keep plugin configurations clean.
 
 ## Maintenance
 - **Lazy.nvim:** Use `lazy.nvim` for all plugin management.
