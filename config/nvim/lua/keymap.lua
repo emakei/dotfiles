@@ -55,3 +55,19 @@ map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostics' })
 map('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic' })
 map('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic' })
 map('n', '<leader>td', builtin.diagnostics, { desc = 'Telescope diagnostics' })
+
+-- ToggleTerm Keymaps
+map('n', '<leader>th', ':ToggleTerm direction=horizontal<CR>', { desc = 'ToggleTerm Horizontal' })
+map('n', '<leader>tv', ':ToggleTerm direction=vertical<CR>', { desc = 'ToggleTerm Vertical' })
+map('n', '<leader>tt', ':ToggleTerm direction=float<CR>', { desc = 'ToggleTerm Float' })
+
+-- Send to Terminal Keymaps
+map("n", "<leader>st", "<cmd>ToggleTermSendCurrentLine<cr>", { desc = "Send current line to terminal" })
+map("v", "<leader>st", "<cmd>ToggleTermSendVisualSelection<cr>", { desc = "Send visual selection to terminal" })
+
+-- Bookmarks Keymaps
+map("n", "mm", "<cmd>BookmarksMark<cr>", { desc = "Toggle Bookmark" })
+map("n", "ma", "<cmd>BookmarksAnnotate<cr>", { desc = "Annotate Bookmark" })
+map("n", "mc", "<cmd>BookmarksClear<cr>", { desc = "Clear Bookmarks" })
+map("n", "ml", "<cmd>BookmarksList<cr>", { desc = "List Bookmarks" })
+

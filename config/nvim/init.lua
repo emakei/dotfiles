@@ -3,6 +3,7 @@ require("autocmds")
 require("keymap")
 require("lazy-setup")
 require("lsp")
+require("neovide")
 
 -- Shared global function so autocmds.lua can access it later
 _G.sync_theme = function()
