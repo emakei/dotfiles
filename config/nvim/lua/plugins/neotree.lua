@@ -22,6 +22,15 @@ return {
       end
 
       require("neo-tree").setup({
+        filesystem = {
+          filtered_items = {
+            hide_dotfiles = false,
+            hide_gitignored = false,
+          },
+          follow_current_file = { enabled = true },
+          hijack_netrw_behavior = "open_default",
+          use_libuv_file_watcher = true,
+        },
         window = {
           mappings = {
             ["P"] = { "toggle_preview", config = { use_float = false, use_image_nvim = true, title = 'Neo-tree Preview' } },

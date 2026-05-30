@@ -25,3 +25,4 @@ M.set_terminal_keymaps = function()
 end
 
 return M
+

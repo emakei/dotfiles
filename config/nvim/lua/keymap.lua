@@ -61,9 +61,18 @@ map('n', '<leader>th', ':ToggleTerm direction=horizontal<CR>', { desc = 'ToggleT
 map('n', '<leader>tv', ':ToggleTerm direction=vertical<CR>', { desc = 'ToggleTerm Vertical' })
 map('n', '<leader>tt', ':ToggleTerm direction=float<CR>', { desc = 'ToggleTerm Float' })
 
+-- Terminal Management Keymaps
+map("n", "<leader>ts", ":TermSelect<CR>", { desc = "Select Terminal" })
+
 -- Send to Terminal Keymaps
 map("n", "<leader>st", "<cmd>ToggleTermSendCurrentLine<cr>", { desc = "Send current line to terminal" })
 map("v", "<leader>st", "<cmd>ToggleTermSendVisualSelection<cr>", { desc = "Send visual selection to terminal" })
+
+-- Gemini Keymaps
+map("n", "<leader>tg", "<cmd>Gemini<cr>", { desc = "Toggle Gemini" })
+
+-- Raku Keymaps
+map("n", "<leader>tr", "<cmd>Raku<cr>", { desc = "Toggle Raku" })
 
 -- Markdown Keymaps
 map("n", "<leader>tm", "<cmd>RenderMarkdown toggle<cr>", { desc = "Toggle Markdown Preview" })

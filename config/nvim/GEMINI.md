@@ -12,6 +12,8 @@ This document outlines the structure, conventions, and maintenance guidelines fo
   - `lsp.lua`: Language Server Protocol configuration.
   - `plugins/`: Plugin-specific configurations, automatically imported by `lazy.nvim`.
   - `utils.lua`: Shared utility functions.
+  - `gemini.lua`: Gemini CLI integration.
+  - `raku.lua`: Raku language terminal integration.
 
 ## Development Conventions
 - **Plugins:** New plugins should be added as individual files within `lua/plugins/` to maintain modularity.

@@ -4,6 +4,8 @@ require("keymap")
 require("lazy-setup")
 require("lsp")
 require("neovide")
+require("gemini").setup()
+require("raku").setup()
 
 local utils = require("utils")
 
