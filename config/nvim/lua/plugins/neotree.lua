@@ -35,6 +35,11 @@ return {
           mappings = {
             ["P"] = { "toggle_preview", config = { use_float = false, use_image_nvim = true, title = 'Neo-tree Preview' } },
             ["T"] = trash,
+            ["GA"] = function(state)
+              vim.cmd("silent !git add .")
+              vim.notify("Git added all files", vim.log.levels.INFO)
+              require("neo-tree.sources.manager").refresh(state)
+            end,
           }
         },
         enable_git_status = true,
