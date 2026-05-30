@@ -1,5 +1,4 @@
 return {
-  'kiddos/gemini.nvim',
-  opts = {}
+	"kiddos/gemini.nvim",
+	opts = {},
 }
-

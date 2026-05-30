@@ -1,3 +1,3 @@
 return {
-  { import = "plugins.minty" },
+	{ import = "plugins.minty" },
 }

@@ -14,4 +14,3 @@ vim.o.updatetime = 300
 vim.opt.clipboard = "unnamedplus"
 
 vim.o.termguicolors = true
-

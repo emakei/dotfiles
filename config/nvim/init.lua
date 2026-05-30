@@ -14,14 +14,14 @@ utils.sync_theme()
 -- Safely load solarized
 local status_ok, solarized = pcall(require, "solarized")
 if status_ok then
-    solarized.setup() -- Removed 'opts' as it was undefined
-    vim.cmd.colorscheme 'solarized'
+	solarized.setup() -- Removed 'opts' as it was undefined
+	vim.cmd.colorscheme 'solarized'
 else
-    vim.cmd.colorscheme 'default'
+	vim.cmd.colorscheme 'default'
 end
 
 local status_ok, lualine = pcall(require, "lualine")
 if status_ok then
-  lualine.setup()
+	lualine.setup()
 end
 

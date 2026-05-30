@@ -2,104 +2,105 @@
 
 -- Helper to set up LSP
 if vim.lsp.config then
-  -- Neovim 0.11+ API
+	-- Neovim 0.11+ API
 
-  -- Diagnostic Configuration
-  vim.diagnostic.config({
-	  virtual_text = true,
-	  signs = true,
-	  underline = true,
-  })  
+	-- Diagnostic Configuration
+	vim.diagnostic.config({
+		virtual_text = true,
+		signs = true,
+		underline = true,
+	})
 
-  -- Dart
-  vim.lsp.config("dartls", {
-    cmd = { "dart", "language-server", "--protocol=lsp" },
-    init_options = {
-      closingLabels = true,
-      outline = true,
-      flutterOutline = true,
-    },
-  })
-  vim.lsp.enable("dartls")
+	-- Dart
+	vim.lsp.config("dartls", {
+		cmd = { "dart", "language-server", "--protocol=lsp" },
+		init_options = {
+			closingLabels = true,
+			outline = true,
+			flutterOutline = true,
+		},
+	})
+	vim.lsp.enable("dartls")
 
-  -- Go
-  vim.lsp.config("gopls", {
-    settings = {
-      gopls = {
-        analyses = { unusedparams = true },
-        staticcheck = true,
-      },
-    },
-  })
-  vim.lsp.enable("gopls")
+	-- Go
+	vim.lsp.config("gopls", {
+		settings = {
+			gopls = {
+				analyses = { unusedparams = true },
+				staticcheck = true,
+			},
+		},
+	})
+	vim.lsp.enable("gopls")
 
-  -- Julia
-  vim.lsp.config("julials", {})
-  vim.lsp.enable("julials")
+	-- Julia
+	vim.lsp.config("julials", {})
+	vim.lsp.enable("julials")
 
-  -- Node.js/JavaScript/TypeScript
-  vim.lsp.config("ts_ls", {})
-  vim.lsp.enable("ts_ls")
+	-- Node.js/JavaScript/TypeScript
+	vim.lsp.config("ts_ls", {})
+	vim.lsp.enable("ts_ls")
 
-  -- Fish shell
-  vim.lsp.config("fish_lsp", {})
-  vim.lsp.enable("fish_lsp")
+	-- Fish shell
+	vim.lsp.config("fish_lsp", {})
+	vim.lsp.enable("fish_lsp")
 
-  -- Rust
-  vim.lsp.config("rust_analyzer", {})
-  vim.lsp.enable("rust_analyzer")
-
+	-- Rust
+	vim.lsp.config("rust_analyzer", {})
+	vim.lsp.enable("rust_analyzer")
 else
-  -- Fallback for Neovim 0.8 - 0.10
-  local status_ok, lspconfig = pcall(require, "lspconfig")
-  if status_ok then
-    -- Dart
-    lspconfig.dartls.setup({
-      cmd = { "dart", "language-server", "--protocol=lsp" },
-      settings = {
-        closingLabels = true,
-        outline = true,
-        flutterOutline = true,
-      },
-    })
+	-- Fallback for Neovim 0.8 - 0.10
+	local status_ok, lspconfig = pcall(require, "lspconfig")
+	if status_ok then
+		-- Dart
+		lspconfig.dartls.setup({
+			cmd = { "dart", "language-server", "--protocol=lsp" },
+			settings = {
+				closingLabels = true,
+				outline = true,
+				flutterOutline = true,
+			},
+		})
 
-    -- Go
-    lspconfig.gopls.setup({
-      settings = {
-        gopls = {
-          analyses = { unusedparams = true },
-          staticcheck = true,
-        },
-      },
-    })
+		-- Go
+		lspconfig.gopls.setup({
+			settings = {
+				gopls = {
+					analyses = { unusedparams = true },
+					staticcheck = true,
+				},
+			},
+		})
 
-    -- Julia
-    lspconfig.julials.setup({})
+		-- Julia
+		lspconfig.julials.setup({})
 
-    -- Node.js/JavaScript/TypeScript
-    lspconfig.ts_ls.setup({})
+		-- Node.js/JavaScript/TypeScript
+		lspconfig.ts_ls.setup({})
 
-    -- Fish shell
-    lspconfig.fish_lsp.setup({})
+		-- Fish shell
+		lspconfig.fish_lsp.setup({})
 
-    -- Rust
-    lspconfig.rust_analyzer.setup({})
-  end
+		-- Rust
+		lspconfig.rust_analyzer.setup({})
+	end
 end
 
 -- Включение LSP document_color (conditional support)
 if vim.lsp.document_color then
-  vim.api.nvim_create_autocmd("LspAttach", {
-    callback = function(args)
-      local client = vim.lsp.get_client_by_id(args.data.client_id)
-      if not client then return end
-      local caps = client.server_capabilities
-      if caps and caps.colorProvider then
-        -- Используем функцию enable, если она есть, иначе просто не включаем
-        if type(vim.lsp.document_color.enable) == "function" then
-          vim.lsp.document_color.enable(args.buf)
-        end
-      end
-    end,
-  })
+	vim.api.nvim_create_autocmd("LspAttach", {
+		callback = function(args)
+			local client = vim.lsp.get_client_by_id(args.data.client_id)
+			if not client then
+				return
+			end
+			local caps = client.server_capabilities
+			if caps and caps.colorProvider then
+				-- Используем функцию enable, если она есть, иначе просто не включаем
+				if type(vim.lsp.document_color.enable) == "function" then
+					vim.lsp.document_color.enable(args.buf)
+				end
+			end
+		end,
+	})
 end
