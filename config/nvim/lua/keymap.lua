@@ -65,6 +65,9 @@ map('n', '<leader>tt', ':ToggleTerm direction=float<CR>', { desc = 'ToggleTerm F
 map("n", "<leader>st", "<cmd>ToggleTermSendCurrentLine<cr>", { desc = "Send current line to terminal" })
 map("v", "<leader>st", "<cmd>ToggleTermSendVisualSelection<cr>", { desc = "Send visual selection to terminal" })
 
+-- Markdown Keymaps
+map("n", "<leader>tm", "<cmd>RenderMarkdown toggle<cr>", { desc = "Toggle Markdown Preview" })
+
 -- Bookmarks Keymaps
 map("n", "mm", "<cmd>BookmarksMark<cr>", { desc = "Toggle Bookmark" })
 map("n", "ma", "<cmd>BookmarksAnnotate<cr>", { desc = "Annotate Bookmark" })
