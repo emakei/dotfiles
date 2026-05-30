@@ -3,7 +3,6 @@ require("autocmds")
 require("keymap")
 require("lazy-setup")
 require("lsp")
-require("neovide")
 require("gemini_custom").setup()
 require("raku").setup()
 
