@@ -1,4 +1,5 @@
 require("options")
+require("neovide")
 require("autocmds")
 require("keymap")
 require("lazy-setup")

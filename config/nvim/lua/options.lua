@@ -12,5 +12,3 @@ vim.o.updatetime = 300
 
 -- Sync nvim buffer with OS
 vim.opt.clipboard = "unnamedplus"
-
-vim.o.termguicolors = true

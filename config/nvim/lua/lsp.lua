@@ -80,9 +80,6 @@ else
 
 		-- Fish shell
 		lspconfig.fish_lsp.setup({})
-
-		-- Rust
-		lspconfig.rust_analyzer.setup({})
 	end
 end
 
