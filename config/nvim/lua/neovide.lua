@@ -3,7 +3,7 @@ if vim.g.neovide then
 	vim.o.guifont = "JetBrains Mono:h14"
 
 	-- Transparency
-	vim.g.neovide_transparency = 0.9
+	vim.g.neovide_opacity = 0.9
 	vim.g.transparency = 0.9
 
 	-- Refresh rate
