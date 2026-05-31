@@ -12,7 +12,3 @@ vim.o.updatetime = 300
 
 -- Sync nvim buffer with OS
 vim.opt.clipboard = "unnamedplus"
-
--- Completion options
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
-vim.o.pumheight = 10

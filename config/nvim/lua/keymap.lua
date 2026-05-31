@@ -84,24 +84,3 @@ map("n", "mm", "<cmd>BookmarksMark<cr>", { desc = "Toggle Bookmark" })
 map("n", "ma", "<cmd>BookmarksAnnotate<cr>", { desc = "Annotate Bookmark" })
 map("n", "mc", "<cmd>BookmarksClear<cr>", { desc = "Clear Bookmarks" })
 map("n", "ml", "<cmd>BookmarksList<cr>", { desc = "List Bookmarks" })
-
--- Completion Keymaps (Built-in PUM)
-map("i", "<Tab>", function()
-	return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>"
-end, { expr = true, silent = true, desc = "Next completion item" })
-
-map("i", "<S-Tab>", function()
-	return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>"
-end, { expr = true, silent = true, desc = "Previous completion item" })
-
-map("i", "<CR>", function()
-	if vim.fn.pumvisible() == 1 then
-		if vim.fn.complete_info()["selected"] ~= -1 then
-			return "<C-y>" -- Accept current selection
-		else
-			return "<C-e><CR>" -- Close menu and insert newline
-		end
-	else
-		return "<CR>"
-	end
-end, { expr = true, silent = true, desc = "Accept completion or insert newline" })
