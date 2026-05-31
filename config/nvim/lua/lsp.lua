@@ -91,6 +91,12 @@ if vim.lsp.document_color then
 			if not client then
 				return
 			end
+
+			-- Enable native auto-completion
+			if client.supports_method("textDocument/completion") then
+				vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+			end
+
 			local caps = client.server_capabilities
 			if caps and caps.colorProvider then
 				-- Используем функцию enable, если она есть, иначе просто не включаем
