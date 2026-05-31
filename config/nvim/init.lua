@@ -6,6 +6,7 @@ require("lazy-setup")
 require("lsp")
 require("gemini_custom").setup()
 require("raku").setup()
+require("julia").setup()
 
 local utils = require("utils")
 
